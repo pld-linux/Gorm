@@ -1,17 +1,17 @@
 Summary:	Graphic Object Relationship modeler
 Summary(pl):	Graficzny modeler zale¿no¶ci obiektów
 Name:		Gorm
-Version:	0.7.5
+Version:	0.7.7
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
-# Source0-md5:	05a18fe52f60813f7130347b1aec7a53
+# Source0-md5:	37a862909f20db4198c7be8fd7a6fb68
 URL:		http://www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-gui-devel >= 0.8.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _prefix         /usr/lib/GNUstep
+%define         _prefix         /usr/%{_lib}/GNUstep
 
 %define		libcombo	gnu-gnu-gnu
 %define		gsos		linux-gnu
@@ -19,7 +19,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		gscpu		ix86
 %else
 # also s/alpha.*/alpha/, but we use only "alpha" arch for now
-%define		gscpu		%{_target_cpu}
+%define		gscpu		%(echo %{_target_cpu} | sed -e 's/amd64/x86_64/;s/ppc/powerpc/')
 %endif
 
 %description
@@ -36,7 +36,7 @@ modeler zale¿no¶ci obiektów). Jest to klon NeXTstepowej aplikacji
 Summary:	Header files for Gorm library
 Summary(pl):	Pliki nag³ówkowe biblioteki Gorma
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-gui-devel
 
 %description devel
@@ -46,7 +46,7 @@ Header files for Gorm library.
 Pliki nag³ówkowe biblioteki Gorma.
 
 %prep
-%setup -q -n %{name}-0_7_5
+%setup -q
 
 %build
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
