@@ -104,5 +104,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%{_prefix}/System/Library/Headers/%{libcombo}/GormObjCHeaderParser
 %{_prefix}/System/Library/Headers/%{libcombo}/InterfaceBuilder
 %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so
