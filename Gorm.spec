@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
 # Source0-md5:	e28ac65632819d74f7622fc0a628e857
+URL:		http://www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-extensions-devel
 BuildRequires:	gnustep-gui-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
