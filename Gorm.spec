@@ -4,7 +4,7 @@ Name:		Gorm
 Version:	0.3.0
 Release:	1
 License:	GPL
-Group:		X11/Applications
+Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
 # Source0-md5:	e28ac65632819d74f7622fc0a628e857
 BuildRequires:	gnustep-extensions-devel
@@ -37,6 +37,7 @@ Summary:	Header files for Gorm library
 Summary(pl):	Pliki nag³ówkowe biblioteki Gorma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	gnustep-gui-devel
 
 %description devel
 Header files for Gorm library.
