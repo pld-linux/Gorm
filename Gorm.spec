@@ -8,7 +8,10 @@ Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
 # Source0-md5:	c454db0888217e7972fea76d05e8d86c
 URL:		http://www.gnustep.org/experience/Gorm.html
-BuildRequires:	gnustep-gui-devel >= 0.8.9
+BuildRequires:	gnustep-base-devel >= 0.10.0
+BuildRequires:	gnustep-gui-devel >= 0.9.4
+Requires:	gnustep-base >= 0.10.0
+Requires:	gnustep-gui >= 0.9.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/%{_lib}/GNUstep
@@ -37,7 +40,8 @@ Summary:	Header files for Gorm library
 Summary(pl):	Pliki nag³ówkowe biblioteki Gorma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnustep-gui-devel
+Requires:	gnustep-base-devel >= 0.10.0
+Requires:	gnustep-gui-devel >= 0.9.4
 
 %description devel
 Header files for Gorm library.
