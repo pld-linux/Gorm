@@ -9,7 +9,7 @@ Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
 # Source0-md5:	8ebef8ef91b533af1475a60182512f95
 URL:		http://www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-extensions-devel
-BuildRequires:	gnustep-gui-devel
+BuildRequires:	gnustep-gui-devel >= 0.8.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/lib/GNUstep
