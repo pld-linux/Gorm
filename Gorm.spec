@@ -8,7 +8,6 @@ Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
 # Source0-md5:	b7fbf64438e626e4ae440e4507af786e
 URL:		http://www.gnustep.org/experience/Gorm.html
-BuildRequires:	gnustep-extensions-devel
 BuildRequires:	gnustep-gui-devel >= 0.8.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
