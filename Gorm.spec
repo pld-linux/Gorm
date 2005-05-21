@@ -1,12 +1,12 @@
 Summary:	Graphic Object Relationship modeler
 Summary(pl):	Graficzny modeler zale¿no¶ci obiektów
 Name:		Gorm
-Version:	0.9.2
+Version:	0.9.10
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
-# Source0-md5:	9b8eed874fc8ec8b306045bb5da2d4cd
+# Source0-md5:	bb5f9bff6012350839dabb8b3e5a019e
 URL:		http://www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-base-devel >= 0.10.0
 BuildRequires:	gnustep-gui-devel >= 0.9.4
@@ -79,10 +79,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_prefix}/System/Applications/Gorm.app/Gorm
 %dir %{_prefix}/System/Applications/Gorm.app/Resources
 %{_prefix}/System/Applications/Gorm.app/Resources/*.desktop
-%{_prefix}/System/Applications/Gorm.app/Resources/*.gorm
 %{_prefix}/System/Applications/Gorm.app/Resources/*.plist
 %{_prefix}/System/Applications/Gorm.app/Resources/*.tiff
 %dir %{_prefix}/System/Applications/Gorm.app/Resources/*.palette
+%dir %{_prefix}/System/Applications/Gorm.app/Resources/English.lproj
+%{_prefix}/System/Applications/Gorm.app/Resources/English.lproj/*.gorm
 %{_prefix}/System/Applications/Gorm.app/Resources/*.palette/Resources
 %attr(755,root,root) %{_prefix}/System/Applications/Gorm.app/Resources/*.palette/%{gscpu}
 %dir %{_prefix}/System/Applications/Gorm.app/%{gscpu}
@@ -91,19 +92,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_prefix}/System/Applications/Gorm.app/%{gscpu}/%{gsos}/%{libcombo}/Gorm
 %{_prefix}/System/Applications/Gorm.app/%{gscpu}/%{gsos}/%{libcombo}/*.openapp
 
-%dir %{_prefix}/System/Applications/GormTest.app
-%attr(755,root,root) %{_prefix}/System/Applications/GormTest.app/GormTest
-%{_prefix}/System/Applications/GormTest.app/Resources
-%dir %{_prefix}/System/Applications/GormTest.app/%{gscpu}
-%dir %{_prefix}/System/Applications/GormTest.app/%{gscpu}/%{gsos}
-%dir %{_prefix}/System/Applications/GormTest.app/%{gscpu}/%{gsos}/%{libcombo}
-%attr(755,root,root) %{_prefix}/System/Applications/GormTest.app/%{gscpu}/%{gsos}/%{libcombo}/GormTest
-%{_prefix}/System/Applications/GormTest.app/%{gscpu}/%{gsos}/%{libcombo}/*.openapp
-
 %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so.*
 
 %files devel
 %defattr(644,root,root,755)
+%{_prefix}/System/Library/Headers/%{libcombo}/GormCore
 %{_prefix}/System/Library/Headers/%{libcombo}/GormObjCHeaderParser
+%{_prefix}/System/Library/Headers/%{libcombo}/GormPrefs
 %{_prefix}/System/Library/Headers/%{libcombo}/InterfaceBuilder
 %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so
