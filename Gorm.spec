@@ -1,12 +1,12 @@
 Summary:	Graphic Object Relationship modeler
 Summary(pl):	Graficzny modeler zale¿no¶ci obiektów
 Name:		Gorm
-Version:	0.9.10
+Version:	0.11.0
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
-# Source0-md5:	bb5f9bff6012350839dabb8b3e5a019e
+# Source0-md5:	28496845e19888b37d8aa7ccd9443404
 URL:		http://www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-base-devel >= 0.10.0
 BuildRequires:	gnustep-gui-devel >= 0.9.4
