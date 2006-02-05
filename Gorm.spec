@@ -1,17 +1,17 @@
 Summary:	Graphic Object Relationship modeler
 Summary(pl):	Graficzny modeler zale¿no¶ci obiektów
 Name:		Gorm
-Version:	1.0.1
+Version:	1.0.4
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
-# Source0-md5:	f30c0f407796969c94df59b6251b0600
+# Source0-md5:	fcc6c0755c10a3f39b283ae029f2878f
 URL:		http://www.gnustep.org/experience/Gorm.html
-BuildRequires:	gnustep-base-devel >= 0.10.0
-BuildRequires:	gnustep-gui-devel >= 0.9.4
-Requires:	gnustep-base >= 0.10.0
-Requires:	gnustep-gui >= 0.9.4
+BuildRequires:	gnustep-base-devel >= 0.11.2
+BuildRequires:	gnustep-gui-devel >= 0.10.2
+Requires:	gnustep-base >= 0.11.2
+Requires:	gnustep-gui >= 0.10.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/%{_lib}/GNUstep
@@ -40,8 +40,8 @@ Summary:	Header files for Gorm library
 Summary(pl):	Pliki nag³ówkowe biblioteki Gorma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnustep-base-devel >= 0.10.0
-Requires:	gnustep-gui-devel >= 0.9.4
+Requires:	gnustep-base-devel >= 0.11.2
+Requires:	gnustep-gui-devel >= 0.10.2
 
 %description devel
 Header files for Gorm library.
@@ -53,14 +53,16 @@ Pliki nag³ówkowe biblioteki Gorma.
 %setup -q
 
 %build
-. %{_prefix}/System/Library/Makefiles/GNUstep.sh
+export GNUSTEP_MAKEFILES=%{_prefix}/System/Library/Makefiles
+export GNUSTEP_TARGET_DIR=%{gscpu}/linux-gnu
 %{__make} \
 	OPTFLAG="%{rpmcflags}" \
 	messages=yes
 
 %install
 rm -rf $RPM_BUILD_ROOT
-. %{_prefix}/System/Library/Makefiles/GNUstep.sh
+export GNUSTEP_MAKEFILES=%{_prefix}/System/Library/Makefiles
+export GNUSTEP_TARGET_DIR=%{gscpu}/linux-gnu
 
 %{__make} install \
 	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_prefix}/System
