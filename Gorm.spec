@@ -1,29 +1,21 @@
 Summary:	Graphic Object Relationship modeler
 Summary(pl):	Graficzny modeler zale¿no¶ci obiektów
 Name:		Gorm
-Version:	1.0.4
+Version:	1.1.0
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/%{name}-%{version}.tar.gz
-# Source0-md5:	fcc6c0755c10a3f39b283ae029f2878f
+Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/gorm-%{version}.tar.gz
+# Source0-md5:	4eef5a043c6c07ca7269add9ee286b38
+Patch0:		%{name}-link.patch
 URL:		http://www.gnustep.org/experience/Gorm.html
-BuildRequires:	gnustep-base-devel >= 0.11.2
-BuildRequires:	gnustep-gui-devel >= 0.10.2
-Requires:	gnustep-base >= 0.11.2
-Requires:	gnustep-gui >= 0.10.2
+BuildRequires:	gnustep-base-devel >= 1.13.0
+BuildRequires:	gnustep-gui-devel >= 0.11.0
+Requires:	gnustep-base >= 1.13.0
+Requires:	gnustep-gui >= 0.11.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/%{_lib}/GNUstep
-
-%define		libcombo	gnu-gnu-gnu
-%define		gsos		linux-gnu
-%ifarch %{ix86}
-%define		gscpu		ix86
-%else
-# also s/alpha.*/alpha/, but we use only "alpha" arch for now
-%define		gscpu		%(echo %{_target_cpu} | sed -e 's/amd64/x86_64/;s/ppc/powerpc/')
-%endif
 
 %description
 Gorm is an acronym for Graphic Object Relationship modeler (or perhaps
@@ -40,8 +32,8 @@ Summary:	Header files for Gorm library
 Summary(pl):	Pliki nag³ówkowe biblioteki Gorma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnustep-base-devel >= 0.11.2
-Requires:	gnustep-gui-devel >= 0.10.2
+Requires:	gnustep-base-devel >= 1.13.0
+Requires:	gnustep-gui-devel >= 0.11.0
 
 %description devel
 Header files for Gorm library.
@@ -50,11 +42,12 @@ Header files for Gorm library.
 Pliki nag³ówkowe biblioteki Gorma.
 
 %prep
-%setup -q
+%setup -q -n gorm-%{version}
+%patch0 -p1
 
 %build
 export GNUSTEP_MAKEFILES=%{_prefix}/System/Library/Makefiles
-export GNUSTEP_TARGET_DIR=%{gscpu}/linux-gnu
+export GNUSTEP_FLATTENED=yes
 %{__make} \
 	OPTFLAG="%{rpmcflags}" \
 	messages=yes
@@ -62,7 +55,7 @@ export GNUSTEP_TARGET_DIR=%{gscpu}/linux-gnu
 %install
 rm -rf $RPM_BUILD_ROOT
 export GNUSTEP_MAKEFILES=%{_prefix}/System/Library/Makefiles
-export GNUSTEP_TARGET_DIR=%{gscpu}/linux-gnu
+export GNUSTEP_FLATTENED=yes
 
 %{__make} install \
 	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_prefix}/System
@@ -87,19 +80,15 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_prefix}/System/Applications/Gorm.app/Resources/English.lproj
 %{_prefix}/System/Applications/Gorm.app/Resources/English.lproj/*.gorm
 %{_prefix}/System/Applications/Gorm.app/Resources/*.palette/Resources
-%attr(755,root,root) %{_prefix}/System/Applications/Gorm.app/Resources/*.palette/%{gscpu}
-%dir %{_prefix}/System/Applications/Gorm.app/%{gscpu}
-%dir %{_prefix}/System/Applications/Gorm.app/%{gscpu}/%{gsos}
-%dir %{_prefix}/System/Applications/Gorm.app/%{gscpu}/%{gsos}/%{libcombo}
-%attr(755,root,root) %{_prefix}/System/Applications/Gorm.app/%{gscpu}/%{gsos}/%{libcombo}/Gorm
-%{_prefix}/System/Applications/Gorm.app/%{gscpu}/%{gsos}/%{libcombo}/*.openapp
+%attr(755,root,root) %{_prefix}/System/Applications/Gorm.app/Resources/*.palette/[0-4]*
+%{_prefix}/System/Applications/Gorm.app/library_paths.openapp
 
-%{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so.*
+%{_prefix}/System/Library/Libraries/libGorm*.so.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_prefix}/System/Library/Headers/%{libcombo}/GormCore
-%{_prefix}/System/Library/Headers/%{libcombo}/GormObjCHeaderParser
-%{_prefix}/System/Library/Headers/%{libcombo}/GormPrefs
-%{_prefix}/System/Library/Headers/%{libcombo}/InterfaceBuilder
-%{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so
+%{_prefix}/System/Library/Headers/GormCore
+%{_prefix}/System/Library/Headers/GormObjCHeaderParser
+%{_prefix}/System/Library/Headers/GormPrefs
+%{_prefix}/System/Library/Headers/InterfaceBuilder
+%{_prefix}/System/Library/Libraries/libGorm*.so
