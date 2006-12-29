@@ -1,0 +1,18 @@
+--- gorm-1.1.0/GormCore/GNUmakefile.preamble.orig	2005-03-31 05:01:36.000000000 +0200
++++ gorm-1.1.0/GormCore/GNUmakefile.preamble	2006-12-29 17:59:52.577585783 +0100
+@@ -23,7 +23,7 @@
+ #
+ 
+ # ADDITIONAL_OBJCFLAGS += -Wall -Werror
+-ADDITIONAL_GUI_LIBS += \
++LIBRARIES_DEPEND_UPON += \
+ 	-lGorm \
+ 	-lGormObjCHeaderParser 
+ 
+@@ -35,4 +35,4 @@
+ ADDITIONAL_LIB_DIRS += \
+ 	-L../GormLib/$(GNUSTEP_OBJ_DIR) \
+ 	-L../GormObjCHeaderParser/$(GNUSTEP_OBJ_DIR)
+-endif
+\
++endif
