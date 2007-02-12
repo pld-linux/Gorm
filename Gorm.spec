@@ -1,5 +1,5 @@
 Summary:	Graphic Object Relationship modeler
-Summary(pl.UTF-8):   Graficzny modeler zależności obiektów
+Summary(pl.UTF-8):	Graficzny modeler zależności obiektów
 Name:		Gorm
 Version:	1.1.0
 Release:	1
@@ -29,7 +29,7 @@ modeler zależności obiektów). Jest to klon NeXTstepowej aplikacji
 
 %package devel
 Summary:	Header files for Gorm library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki Gorma
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Gorma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-base-devel >= 1.13.0
