@@ -1,5 +1,5 @@
 Summary:	Graphic Object Relationship modeler
-Summary(pl):	Graficzny modeler zale縩o禼i obiekt體
+Summary(pl.UTF-8):   Graficzny modeler zale偶no艣ci obiekt贸w
 Name:		Gorm
 Version:	1.1.0
 Release:	1
@@ -22,14 +22,14 @@ Gorm is an acronym for Graphic Object Relationship modeler (or perhaps
 GNUstep Object Relationship Modeler). It is a clone of the NeXTstep
 `Interface Builder' application for GNUstep.
 
-%description -l pl
-Gorm to skr髏 od Graphic Object Relationship modeler (czyli graficzny
-modeler zale縩o禼i obiekt體). Jest to klon NeXTstepowej aplikacji
+%description -l pl.UTF-8
+Gorm to skr贸t od Graphic Object Relationship modeler (czyli graficzny
+modeler zale偶no艣ci obiekt贸w). Jest to klon NeXTstepowej aplikacji
 "Interface Builder" dla GNUstepa.
 
 %package devel
 Summary:	Header files for Gorm library
-Summary(pl):	Pliki nag丑wkowe biblioteki Gorma
+Summary(pl.UTF-8):   Pliki nag艂贸wkowe biblioteki Gorma
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-base-devel >= 1.13.0
@@ -38,8 +38,8 @@ Requires:	gnustep-gui-devel >= 0.11.0
 %description devel
 Header files for Gorm library.
 
-%description devel -l pl
-Pliki nag丑wkowe biblioteki Gorma.
+%description devel -l pl.UTF-8
+Pliki nag艂贸wkowe biblioteki Gorma.
 
 %prep
 %setup -q -n gorm-%{version}
