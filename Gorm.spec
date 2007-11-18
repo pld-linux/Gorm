@@ -8,7 +8,7 @@ Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/gorm-%{version}.tar.gz
 # Source0-md5:	4ea0658d5fa4fc1e38baa0846d05b1ac
 Patch0:		%{name}-link.patch
-URL:		http:/www.gnustep.org/experience/Gorm.html
+URL:		http://www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-base-devel >= 1.13.0
 BuildRequires:	gnustep-gui-devel >= 0.11.0
 Requires:	gnustep-base >= 1.13.0
