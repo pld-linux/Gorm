@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Graficzny modeler zależności obiektów
 Name:		Gorm
 Version:	1.2.2
 Release:	1
-License:	GPLv3
+License:	GPL v3+
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/gorm-%{version}.tar.gz
 # Source0-md5:	4ea0658d5fa4fc1e38baa0846d05b1ac
