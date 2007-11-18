@@ -1,21 +1,19 @@
 Summary:	Graphic Object Relationship modeler
 Summary(pl.UTF-8):	Graficzny modeler zależności obiektów
 Name:		Gorm
-Version:	1.1.0
+Version:	1.2.2
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/gorm-%{version}.tar.gz
-# Source0-md5:	4eef5a043c6c07ca7269add9ee286b38
+# Source0-md5:	4ea0658d5fa4fc1e38baa0846d05b1ac
 Patch0:		%{name}-link.patch
-URL:		http://www.gnustep.org/experience/Gorm.html
+URL:		http:/www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-base-devel >= 1.13.0
 BuildRequires:	gnustep-gui-devel >= 0.11.0
 Requires:	gnustep-base >= 1.13.0
 Requires:	gnustep-gui >= 0.11.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define         _prefix         /usr/%{_lib}/GNUstep
 
 %description
 Gorm is an acronym for Graphic Object Relationship modeler (or perhaps
@@ -46,7 +44,7 @@ Pliki nagłówkowe biblioteki Gorma.
 %patch0 -p1
 
 %build
-export GNUSTEP_MAKEFILES=%{_prefix}/System/Library/Makefiles
+export GNUSTEP_MAKEFILES=%{_datadir}/GNUstep/Makefiles
 export GNUSTEP_FLATTENED=yes
 %{__make} \
 	OPTFLAG="%{rpmcflags}" \
@@ -54,11 +52,11 @@ export GNUSTEP_FLATTENED=yes
 
 %install
 rm -rf $RPM_BUILD_ROOT
-export GNUSTEP_MAKEFILES=%{_prefix}/System/Library/Makefiles
+export GNUSTEP_MAKEFILES=%{_datadir}/GNUstep/Makefiles
 export GNUSTEP_FLATTENED=yes
 
 %{__make} install \
-	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_prefix}/System
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,26 +67,24 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ANNOUNCE ChangeLog NEWS README TODO
-
-%dir %{_prefix}/System/Applications/Gorm.app
-%attr(755,root,root) %{_prefix}/System/Applications/Gorm.app/Gorm
-%dir %{_prefix}/System/Applications/Gorm.app/Resources
-%{_prefix}/System/Applications/Gorm.app/Resources/*.desktop
-%{_prefix}/System/Applications/Gorm.app/Resources/*.plist
-%{_prefix}/System/Applications/Gorm.app/Resources/*.tiff
-%dir %{_prefix}/System/Applications/Gorm.app/Resources/*.palette
-%dir %{_prefix}/System/Applications/Gorm.app/Resources/English.lproj
-%{_prefix}/System/Applications/Gorm.app/Resources/English.lproj/*.gorm
-%{_prefix}/System/Applications/Gorm.app/Resources/*.palette/Resources
-%attr(755,root,root) %{_prefix}/System/Applications/Gorm.app/Resources/*.palette/[0-4]*
-%{_prefix}/System/Applications/Gorm.app/library_paths.openapp
-
-%{_prefix}/System/Library/Libraries/libGorm*.so.*
+%attr(755,root,root) %{_bindir}/Gorm
+%dir %{_libdir}/GNUstep/Applications/Gorm.app
+%attr(755,root,root) %{_libdir}/GNUstep/Applications/Gorm.app/Gorm
+%dir %{_libdir}/GNUstep/Applications/Gorm.app/Resources
+%{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.desktop
+%{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.plist
+%{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.tiff
+%dir %{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.palette
+%dir %{_libdir}/GNUstep/Applications/Gorm.app/Resources/English.lproj
+%{_libdir}/GNUstep/Applications/Gorm.app/Resources/English.lproj/*.gorm
+%{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.palette/Resources
+%attr(755,root,root) %{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.palette/[0-4]*
+%attr(755,root,root) %{_libdir}/libGorm*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_prefix}/System/Library/Headers/GormCore
-%{_prefix}/System/Library/Headers/GormObjCHeaderParser
-%{_prefix}/System/Library/Headers/GormPrefs
-%{_prefix}/System/Library/Headers/InterfaceBuilder
-%{_prefix}/System/Library/Libraries/libGorm*.so
+%{_includedir}/GormCore
+%{_includedir}/GormObjCHeaderParser
+%{_includedir}/GormPrefs
+%{_includedir}/InterfaceBuilder
+%{_libdir}/libGorm*.so
