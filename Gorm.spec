@@ -1,12 +1,12 @@
 Summary:	Graphic Object Relationship modeler
 Summary(pl.UTF-8):	Graficzny modeler zależności obiektów
 Name:		Gorm
-Version:	1.2.2
+Version:	1.2.6
 Release:	1
 License:	GPL v3+
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/gorm-%{version}.tar.gz
-# Source0-md5:	4ea0658d5fa4fc1e38baa0846d05b1ac
+# Source0-md5:	708d28cb4185409725818c3503d5443c
 Patch0:		%{name}-link.patch
 URL:		http://www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-base-devel >= 1.13.0
@@ -74,6 +74,19 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.desktop
 %{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.plist
 %{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.tiff
+%dir /usr/lib/GNUstep/Applications/Gorm.app/Resources/GModel.plugin/GModel
+%attr(755,root,root) /usr/lib/GNUstep/Applications/Gorm.app/Resources/GModel.plugin/GModel
+%dir /usr/lib/GNUstep/Applications/Gorm.app/Resources/GModel.plugin/Resources
+/usr/lib/GNUstep/Applications/Gorm.app/Resources/GModel.plugin/Resources/Info-gnustep.plist
+%dir /usr/lib/GNUstep/Applications/Gorm.app/Resources/Nib.plugin/Nib
+%attr(755,root,root) /usr/lib/GNUstep/Applications/Gorm.app/Resources/Nib.plugin/Nib
+%dir /usr/lib/GNUstep/Applications/Gorm.app/Resources/Nib.plugin/Resources
+/usr/lib/GNUstep/Applications/Gorm.app/Resources/Nib.plugin/Resources/Info-gnustep.plist
+%dir /usr/lib/GNUstep/Applications/Gorm.app/Resources/Gorm.plugin/Gorm
+%attr(755,root,root) /usr/lib/GNUstep/Applications/Gorm.app/Resources/Gorm.plugin/Gorm
+%dir /usr/lib/GNUstep/Applications/Gorm.app/Resources/Gorm.plugin/Resources
+/usr/lib/GNUstep/Applications/Gorm.app/Resources/Gorm.plugin/Resources/Info-gnustep.plist
+
 %dir %{_libdir}/GNUstep/Applications/Gorm.app/Resources/*.palette
 %dir %{_libdir}/GNUstep/Applications/Gorm.app/Resources/English.lproj
 %{_libdir}/GNUstep/Applications/Gorm.app/Resources/English.lproj/*.gorm
