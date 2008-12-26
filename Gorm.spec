@@ -1,18 +1,18 @@
 Summary:	Graphic Object Relationship modeler
 Summary(pl.UTF-8):	Graficzny modeler zależności obiektów
 Name:		Gorm
-Version:	1.2.6
+Version:	1.2.8
 Release:	1
 License:	GPL v3+
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/dev-apps/gorm-%{version}.tar.gz
-# Source0-md5:	708d28cb4185409725818c3503d5443c
+# Source0-md5:	6988f6845503d47fa32e1779a816e087
 Patch0:		%{name}-link.patch
 URL:		http://www.gnustep.org/experience/Gorm.html
 BuildRequires:	gnustep-base-devel >= 1.13.0
 BuildRequires:	gnustep-gui-devel >= 0.11.0
 Requires:	gnustep-base >= 1.13.0
-Requires:	gnustep-gui >= 0.11.0
+Requires:	gnustep-gui >= 0.16.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,6 +54,7 @@ export GNUSTEP_FLATTENED=yes
 rm -rf $RPM_BUILD_ROOT
 export GNUSTEP_MAKEFILES=%{_datadir}/GNUstep/Makefiles
 export GNUSTEP_FLATTENED=yes
+export GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
